@@ -135,3 +135,20 @@ def cuatro():
     #plt.text(0, max(totales), 'maximo:'+data_rangos[totales.index(max(totales))], fontsize=14)
     plt.legend(loc='best')
     plt.show()
+def cinco():
+    confirmados_h = confirmados[:len(confirmados)//2]
+    confirmados_m = confirmados[len(confirmados)//2:]
+    probables_h   = probables[:len(probables)//2]
+    probables_m   = probables[len(probables)//2:]
+    eje_x = np.arange(len(data_rangos))
+    ancho = 0.2
+    plt.bar(eje_x,confirmados_h,width=ancho,label='Hombres confirmados')
+    plt.bar(eje_x+ancho,confirmados_m,width=ancho,label='Mujeres confirmados')
+    plt.bar(eje_x+2*ancho,probables_h,width=ancho,label='Hombres probables')
+    plt.bar(eje_x+3*ancho,probables_m,width=ancho,label='Mujeres probables')
+    plt.grid(True)
+    plt.xticks(eje_x,data_rangos,rotation=90)
+    plt.title('Comparacion por etapa clinica')
+    plt.legend(loc='best')
+    plt.ylabel('Casos Totales')
+    plt.show()
