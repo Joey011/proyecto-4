@@ -152,3 +152,44 @@ def cinco():
     plt.legend(loc='best')
     plt.ylabel('Casos Totales')
     plt.show()
+def seis():
+    lista = []
+    promedio = 0
+    frecuencias = []
+    for i in range(len(lista_rangos)):
+        marca_clase = i*5+2 #años
+        lista.extend([marca_clase]*lista_rangos[i][-1])
+        frecuencias.append(lista_rangos[i][-1])
+    promedio = sum(lista)/len(lista)
+    if len(lista)%2==0:
+        i = len(lista)//2
+        media = lista[i]
+    else:
+        i = len(lista)//2
+        ii= i+1
+        media = (lista[i]+lista[ii])/2
+    i = frecuencias.index(max(frecuencias))
+    moda_marca = i*5+2
+    moda = data_rangos[i]
+    var = 0
+    for i in range(len(frecuencias)):
+        var += (frecuencias[i]-promedio)**2
+    var = var/(len(frecuencias)-1)
+    std = var**0.5
+    print('Estadisticas del rango etario de la población')
+    print()
+    print('Moda:',moda)
+    print('Marca de clase para la moda:',moda_marca)
+    print('Pormedio según marcas de clase:',promedio)
+    print('Varianza:',var)
+    print('Desviación estandar:',std)
+    print('Totalpoblación:',len(frecuencias))
+    print()
+l_opc = ['Revisar últimas 7 fechas',
+         'Rango con mayor contagio',
+         'Sexo con mayor contagio',
+         'Casos por sexo y rango',
+         'Comparacion por etapa clinica',
+         'Comprobacion estadistica']
+l_f = [uno,dos,tres,cuatro,cinco,seis]
+menu_programa('Menú:',l_opc,l_f)    
