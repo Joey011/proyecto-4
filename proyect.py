@@ -40,3 +40,33 @@ with open('CasosGeneroEtarioEtapaClinica.csv','r',encoding='utf-8') as archivo:
             confirmados.append(int(float(fila[-1])))
         elif fila[2]=='PROBABLE':
             probables.append(int(float(fila[-1])))
+def menu_programa(encabezado,opciones,funciones):
+    print(encabezado) #titulo del menu
+    print()           #salto de linea
+    #se forma un texto con las opciones que se imprimiran
+    texto = ''
+    for i in range(len(opciones)):
+        texto += str(i+1)+'~ '+opciones[i]+'\n'
+    texto += '0~ Salir\n'
+    #interruptor encendido
+    interruptor = True
+    #mientras el interruptor este encendido
+    while interruptor:
+        #se imprime menu
+        print(texto)
+        opcion = input('Ingrese su opción: ')
+        #la opcion es valida si es realmente un caracter numerico
+        if opcion.isnumeric(): #metodo con respuesta booleana #True/False
+            opcion = int(opcion)
+            #si es una opcion valida
+            if opcion in range(len(opciones)+1):
+                if opcion == 0:
+                    interruptor = False
+                else:
+                    #se ejecuta funcion alojada en la lista
+                    #correspondiente a la opcion seleccionada
+                    funciones[opcion-1]()
+            else:
+                print('Opción no válida')
+        else:
+            print('Opción no válida')
