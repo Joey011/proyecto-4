@@ -90,4 +90,15 @@ def uno():
         else:
             print('Opción no válida')
     else:
-        print('Opción no válida')         
+        print('Opción no válida')      
+def dos():
+    totales = []
+    for i in range(len(lista_rangos)):
+        totales.append(lista_rangos[i][-1])
+    plt.bar(range(len(data_rangos)),totales)
+    plt.title('Rango etario con mayor tasa de contagios')
+    plt.grid(True) #cuadricula
+    plt.ylabel('Casos Totales')
+    plt.xticks(range(len(data_rangos)),labels=data_rangos,rotation=90)
+    plt.text(0, max(totales), 'maximo:'+data_rangos[totales.index(max(totales))], fontsize=14)
+    plt.show()     
