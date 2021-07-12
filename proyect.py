@@ -119,3 +119,19 @@ def tres():
     plt.text(0, max(T), 'mayor indice de contagios: '+X, fontsize=14)
     plt.xticks(range(2),['Hombres','Mujeres'])
     plt.show()
+def cuatro():
+    totates_h = [] 
+    totales_m = []
+    for i in range(len(lista_rangos_h)):
+        totates_h.append(lista_rangos_h[i][-1])
+    for i in range(len(lista_rangos_m)):
+        totales_m.append(lista_rangos_m[i][-1])
+    plt.bar(range(len(data_rangos)),totates_h,width=0.35,label='Hombres')
+    plt.bar(np.arange(len(data_rangos))+0.35,totales_m,width=0.35,label='Mujeres')
+    plt.title('Casos por sexo y rango')
+    plt.grid(True) #cuadricula
+    plt.ylabel('Casos Totales')
+    plt.xticks(range(len(data_rangos)),labels=data_rangos,rotation=90)
+    #plt.text(0, max(totales), 'maximo:'+data_rangos[totales.index(max(totales))], fontsize=14)
+    plt.legend(loc='best')
+    plt.show()
