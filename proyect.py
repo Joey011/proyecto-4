@@ -70,3 +70,24 @@ def menu_programa(encabezado,opciones,funciones):
                 print('Opción no válida')
         else:
             print('Opción no válida')
+def uno():
+    for i in range(len(data_rangos)):
+        print(str(i+1)+'~',data_rangos[i])
+    rango = input('Seleccione rango etario: ')
+    if rango.isnumeric():
+        rango = int(rango)
+        if rango in range(1,len(lista_rangos)+1):
+            #se escoje fila con el rango escogido
+            #se consideran 7 ultimos datos
+            fechas = lista_fechas[-7:]
+            plt.plot(range(7),lista_rangos[rango][-7:])
+            #etiquetas del eje x
+            plt.xticks(range(7),labels=fechas,rotation=45)
+            plt.grid(True) #cuadricula
+            plt.ylabel('Casos')
+            plt.title(data_rangos[rango])
+            plt.show()
+        else:
+            print('Opción no válida')
+    else:
+        print('Opción no válida')         
