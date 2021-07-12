@@ -102,3 +102,20 @@ def dos():
     plt.xticks(range(len(data_rangos)),labels=data_rangos,rotation=90)
     plt.text(0, max(totales), 'maximo:'+data_rangos[totales.index(max(totales))], fontsize=14)
     plt.show()     
+def tres():
+    totates_h = [] 
+    totales_m = []
+    for i in range(len(lista_rangos_h)):
+        totates_h.append(lista_rangos_h[i][-1])
+    for i in range(len(lista_rangos_m)):
+        totales_m.append(lista_rangos_m[i][-1])
+    T = [sum(totates_h),sum(totales_m)]
+    plt.bar(range(2),T)
+    plt.grid(True)
+    X = 'Hombres'
+    if T[0] != max(T):
+        X = 'Mujeres'
+    plt.ylabel('Casos Totales')
+    plt.text(0, max(T), 'mayor indice de contagios: '+X, fontsize=14)
+    plt.xticks(range(2),['Hombres','Mujeres'])
+    plt.show()
